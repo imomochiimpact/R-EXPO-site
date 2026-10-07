@@ -12,10 +12,10 @@ export default function Home() {
       <Hero />
       {/* <ConceptIntro /> */}
       <EventSummary />
-      <NewsList />
+      <SupportCta />
       <PageLinks />
       {/* <ArchivePreview /> */}
-      <SupportCta />
+      <NewsList />
     </main>
   );
 }
