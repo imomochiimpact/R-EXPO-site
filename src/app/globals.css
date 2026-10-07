@@ -1,26 +1,115 @@
-@import "tailwindcss";
-
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary: #00164A;      /* テーマカラー */
+  --textPrimary: #171717;
+  --textSecondary: #405077;      /* ちょい薄いアクセントカラー */
+  --accentBlue: #09A4F1;
+  --accentGreen: #68CED2;
+  --accentPurple: #8A95EE;
+  --accentPink: #FD828D;
+  --bgScreen: #FFFFFF;
+  --surfaceVariant: #F0F1F3;
+  --navy50: #7F89A4;
+  --navy20: #C2C8D0;
+  --blue20: #C3E9FC;
+  --accentBlueSoft: #85D2F8;
+  --accentGreenSoft: #B4E7E8;
+  --accentPinkSoft: #FFC0C6;
+  --accentPurpleSoft: #C4CAF7;
+  --textSub: #515151;
+  --textMuted: #8B8B8B;
+  --border: #C6C6C6;
+  --white: #FFFFFF;
+
+  /* ===== Fonts ===== */
+  /* 英字は Inter、和文は Inter に無いので Zen Kaku Gothic New にフォールバック */
+  --font-base: var(--font-inter), var(--font-zen-kaku), sans-serif;
+  --font-ja: var(--font-zen-kaku), sans-serif;
+  --font-en: var(--font-inter), var(--font-zen-kaku), sans-serif;
+  --font-num: var(--font-oswald), var(--font-zen-kaku), sans-serif;
+
+  /* ===== Layout ===== */
+  --content-max: calc(1180px + var(--gutter) * 2);
+  --gutter: clamp(16px, 4vw, 56px);
+  --section-y: clamp(28px, 4vw, 56px);
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+*,
+*::before,
+*::after {
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  box-sizing: border-box;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  background-color: var(--bgScreen);
+  color: var(--textPrimary);
+  font-family: var(--font-base);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+}
+
+[data-reveal="hidden"] {
+  opacity: 0;
+  transform: translateY(22px);
+}
+
+[data-reveal="shown"] {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity 0.7s ease,
+    transform 0.8s var(--ease-out);
+}
+
+@keyframes barRun {
+  0% {
+    transform: scaleX(0);
+    opacity: 1;
+  }
+  60% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scaleX(1);
+    opacity: 0;
+  }
+}
+
+@keyframes pageFade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes textUp {
+  from {
+    transform: translateY(105%);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
 }

@@ -1,0 +1,39 @@
+.section {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: clamp(40px, 6vw, 80px) var(--gutter) var(--section-y);
+}
+
+.label {
+  margin: 0;
+  color: var(--accentPink);
+  font-family: var(--font-num);
+  font-size: 12px;
+  letter-spacing: 0.2em;
+}
+
+.theme {
+  margin: 14px 0 0;
+  color: var(--primary);
+  font-size: clamp(22px, 3.2vw, 36px);
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.summary {
+  max-width: 34em;
+  margin: 18px 0 0;
+  color: var(--textSub);
+  font-size: clamp(14px, 1.5vw, 16px);
+  line-height: 2;
+  text-wrap: pretty;
+}
+
+.more {
+  display: inline-block;
+  margin-top: 20px;
+  border-bottom: 1px solid var(--accentPink);
+  color: var(--primary);
+  font-size: 13px;
+  text-decoration: none;
+}

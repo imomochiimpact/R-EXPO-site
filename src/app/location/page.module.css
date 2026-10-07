@@ -1,0 +1,5 @@
+.body {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: clamp(32px, 5vw, 64px) var(--gutter) clamp(56px, 8vw, 112px);
+}

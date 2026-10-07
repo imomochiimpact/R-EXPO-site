@@ -1,0 +1,84 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: clamp(24px, 4vw, 56px);
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: clamp(36px, 6vw, 72px) var(--gutter) clamp(56px, 8vw, 112px);
+}
+
+.steps {
+  margin: 20px 0 0;
+  padding: 0;
+  border-bottom: 1px solid var(--border);
+  list-style: none;
+}
+
+.step {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 12px;
+  padding: 18px 0;
+  border-top: 1px solid var(--border);
+}
+
+.num {
+  color: var(--primary);
+  font-family: var(--font-num);
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.text {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.subList {
+  margin: 8px 0 0;
+  padding-left: 1.2em;
+  color: var(--textSub);
+  font-size: 13.5px;
+  line-height: 1.9;
+}
+
+.action {
+  margin-top: 24px;
+}
+
+.note {
+  margin: 20px 0 0;
+  color: var(--textPrimary);
+  font-size: 15px;
+  line-height: 2;
+  text-wrap: pretty;
+}
+
+.url {
+  border-bottom: 1px solid var(--accentBlue);
+  color: var(--primary);
+  font-family: var(--font-en);
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.sponsors {
+  margin-top: 28px;
+  padding: 20px;
+  background-color: var(--surfaceVariant);
+}
+
+.sponsorsTitle {
+  margin: 0;
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.sponsorsText {
+  margin: 6px 0 0;
+  color: var(--textSub);
+  font-size: 13px;
+  line-height: 1.8;
+}

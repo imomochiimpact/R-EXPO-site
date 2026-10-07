@@ -1,0 +1,27 @@
+.letter {
+  max-width: calc(820px + var(--gutter) * 2);
+  margin: 0 auto;
+  padding: clamp(36px, 6vw, 72px) var(--gutter);
+}
+
+.title {
+  margin: 0;
+  color: var(--primary);
+  font-size: clamp(20px, 2.6vw, 28px);
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.body {
+  display: grid;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.text {
+  margin: 0;
+  color: var(--textPrimary);
+  font-size: 15px;
+  line-height: 2.05;
+  text-wrap: pretty;
+}

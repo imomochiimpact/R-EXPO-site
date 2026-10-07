@@ -1,0 +1,54 @@
+.header {
+  background-color: var(--primary);
+}
+
+.header[data-tone="blue"] { --accent: var(--accentBlue); }
+.header[data-tone="green"] { --accent: var(--accentGreen); }
+.header[data-tone="purple"] { --accent: var(--accentPurple); }
+.header[data-tone="pink"] { --accent: var(--accentPink); }
+
+.inner {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: clamp(20px, 2.6vw, 32px) var(--gutter) clamp(28px, 4vw, 52px);
+}
+
+.label {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin: 0;
+  color: var(--white);
+  font-family: var(--font-num);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+}
+
+.bar {
+  width: 28px;
+  height: 6px;
+  background-color: var(--accent);
+}
+
+.title {
+  margin: 10px 0 0;
+  overflow: hidden;
+  color: var(--white);
+  font-size: clamp(28px, 4.4vw, 52px);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.titleText {
+  display: inline-block;
+  animation: textUp 0.7s var(--ease-out) 0.1s both;
+}
+
+.lead {
+  max-width: 36em;
+  margin: 14px 0 0;
+  color: var(--navy20);
+  font-size: 14px;
+  line-height: 2;
+}

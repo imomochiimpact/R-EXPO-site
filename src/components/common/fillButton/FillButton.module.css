@@ -1,0 +1,86 @@
+.button {
+  --r: 0px;
+  --x: 50%;
+  --y: 50%;
+  position: relative;
+  display: inline-flex;
+  gap: 14px;
+  align-items: center;
+  padding: 15px 24px;
+  overflow: hidden;
+  border: 1.5px solid var(--fg);
+  color: var(--fg);
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.button[data-variant="navy"] {
+  --fg: var(--primary);
+  --fill-bg: var(--primary);
+  --fill-fg: var(--white);
+}
+
+.button[data-variant="solid"] {
+  --fg: var(--primary);
+  --fill-bg: var(--accentBlue);
+  --fill-fg: var(--primary);
+  padding: 17px 28px;
+  background-color: var(--primary);
+  color: var(--white);
+  font-size: 15px;
+}
+
+.button[data-variant="teal"] {
+  --fg: var(--primary);
+  --fill-bg: var(--accentGreen);
+  --fill-fg: var(--primary);
+}
+
+.button[data-size="sm"] {
+  gap: 8px;
+  padding: 11px 18px;
+  border-width: 1px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.button[data-size="sm"] .fill {
+  gap: 8px;
+}
+
+.button[data-variant="white"] {
+  --fg: var(--white);
+  --fill-bg: var(--white);
+  --fill-fg: var(--primary);
+}
+
+.arrow {
+  font-family: var(--font-num);
+  font-weight: 500;
+}
+
+.fill {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  padding: inherit;
+  background-color: var(--fill-bg);
+  color: var(--fill-fg);
+  clip-path: circle(var(--r) at var(--x) var(--y));
+  transition: clip-path 0.5s var(--ease-out);
+  pointer-events: none;
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--accentBlue);
+  outline-offset: 3px;
+}
+
+@media (hover: none) {
+  .fill {
+    display: none;
+  }
+}

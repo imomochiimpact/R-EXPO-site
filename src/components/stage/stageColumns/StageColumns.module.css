@@ -1,0 +1,126 @@
+.cols {
+  display: flex;
+  height: 400px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  display: flex;
+  flex: 1 1 0;
+  min-width: 0;
+  transition: flex 0.55s var(--ease-out);
+}
+
+.item:hover,
+.item:focus-within {
+  flex: 3.2 1 0;
+}
+
+.col {
+  position: relative;
+  display: block;
+  flex: 1;
+  overflow: hidden;
+  background-color: var(--accent);
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.col[data-tone="blue"] { --accent: var(--accentBlue); }
+.col[data-tone="green"] { --accent: var(--accentGreen); }
+.col[data-tone="pink"] { --accent: var(--accentPink); }
+.col[data-tone="purple"] { --accent: var(--accentPurple); }
+
+.shape {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 160px;
+  height: 160px;
+  margin: -80px 0 0 -80px;
+  color: var(--white);
+  opacity: 0.5;
+  transform: scale(0.5);
+  transition:
+    transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1),
+    opacity 0.4s ease;
+}
+
+.item:hover .shape,
+.item:focus-within .shape {
+  opacity: 1;
+  transform: rotate(90deg) scale(1.1);
+}
+
+.num {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  font-family: var(--font-num);
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.name {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  font-family: var(--font-en);
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.1;
+  white-space: nowrap;
+  transform: rotate(-90deg) translate(0, 100%) scale(0.6);
+  transform-origin: left bottom;
+  transition: transform 0.5s var(--ease-out);
+}
+
+.item:hover .name,
+.item:focus-within .name {
+  transform: none;
+}
+
+.col:focus-visible {
+  outline: 3px solid var(--white);
+  outline-offset: -3px;
+}
+
+@media (max-width: 979px) {
+  .cols {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .item,
+  .item:hover,
+  .item:focus-within {
+    flex: none;
+  }
+
+  .col {
+    height: 84px;
+  }
+
+  .shape {
+    top: 50%;
+    right: 20px;
+    left: auto;
+    width: 120px;
+    height: 120px;
+    margin: -60px 0 0;
+  }
+
+  .num {
+    top: 12px;
+    font-size: 26px;
+  }
+
+  .name {
+    bottom: 12px;
+    font-size: 18px;
+    transform: none;
+  }
+}

@@ -1,0 +1,17 @@
+.section {
+  background-color: var(--surfaceVariant);
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 12px;
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: clamp(36px, 6vw, 72px) var(--gutter);
+  list-style: none;
+}
+
+.list > li {
+  display: flex;
+}

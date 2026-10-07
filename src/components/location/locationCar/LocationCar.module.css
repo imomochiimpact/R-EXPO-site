@@ -1,0 +1,12 @@
+.section {
+  margin-top: clamp(48px, 7vw, 88px);
+}
+
+.text {
+  max-width: 46em;
+  margin: 16px 0 0;
+  color: var(--textSub);
+  font-size: 14px;
+  line-height: 2;
+  text-wrap: pretty;
+}

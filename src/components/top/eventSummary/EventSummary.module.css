@@ -1,0 +1,55 @@
+.summary {
+  border-bottom: 1px solid var(--border);
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: clamp(20px, 3vw, 40px);
+  align-items: end;
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: clamp(28px, 4vw, 48px) var(--gutter);
+}
+
+.inner p {
+  margin: 0;
+}
+
+.label {
+  color: var(--textMuted);
+  font-family: var(--font-num);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+}
+
+.date {
+  margin-top: 8px !important;
+  color: var(--primary);
+  font-family: var(--font-num);
+  font-size: clamp(48px, 7vw, 84px);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.weekday {
+  margin-left: 10px;
+  font-size: 0.32em;
+  font-weight: 500;
+  vertical-align: 0.6em;
+}
+
+.venue {
+  margin-top: 8px !important;
+  color: var(--primary);
+  font-size: clamp(18px, 2.2vw, 24px);
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.note {
+  margin-top: 6px !important;
+  color: var(--textSub);
+  font-size: 13px;
+}

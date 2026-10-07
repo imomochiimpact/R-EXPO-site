@@ -1,0 +1,19 @@
+.bar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 90;
+  height: 3px;
+  background-color: var(--accent);
+  transform-origin: left center;
+  pointer-events: none;
+  animation: barRun 0.75s cubic-bezier(0.65, 0, 0.25, 1) both;
+}
+
+.bar[data-tone="primary"] { --accent: var(--white); }
+.bar[data-tone="secondary"] { --accent: var(--navy20); }
+.bar[data-tone="blue"] { --accent: var(--accentBlue); }
+.bar[data-tone="green"] { --accent: var(--accentGreen); }
+.bar[data-tone="purple"] { --accent: var(--accentPurple); }
+.bar[data-tone="pink"] { --accent: var(--accentPink); }

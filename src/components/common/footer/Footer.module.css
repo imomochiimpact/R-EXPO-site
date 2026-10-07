@@ -1,0 +1,38 @@
+.footer {
+  border-top: 1px solid var(--border);
+  background-color: var(--surfaceVariant);
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: clamp(20px, 3vw, 40px);
+  align-items: start;
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: clamp(32px, 5vw, 56px) var(--gutter);
+}
+
+.logoImage {
+  display: block;
+  width: auto;
+  height: 28px;
+}
+
+.org {
+  margin: 14px 0 0;
+  color: var(--textSub);
+  font-size: 12px;
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.credit {
+  color: var(--textSub);
+  font-size: 12px;
+  line-height: 1.8;
+}

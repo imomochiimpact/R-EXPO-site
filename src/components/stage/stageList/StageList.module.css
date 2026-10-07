@@ -1,0 +1,100 @@
+.list {
+  display: grid;
+  gap: clamp(28px, 4vw, 48px);
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: clamp(36px, 6vw, 72px) var(--gutter) clamp(56px, 8vw, 112px);
+}
+
+.stage {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: clamp(20px, 3vw, 40px);
+  align-items: center;
+  padding-top: clamp(24px, 3vw, 36px);
+  border-top: 1px solid var(--border);
+  scroll-margin-top: 80px;
+}
+
+.stage[data-tone="blue"] { --accent: var(--accentBlue); --soft: var(--blue20); }
+.stage[data-tone="green"] { --accent: var(--accentGreen); --soft: #d9f3f4; }
+.stage[data-tone="pink"] { --accent: var(--accentPink); --soft: #ffe0e3; }
+.stage[data-tone="purple"] { --accent: var(--accentPurple); --soft: #e1e5fb; }
+
+.panel {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background-color: var(--surfaceVariant);
+}
+
+.panel::before {
+  position: absolute;
+  inset: 0;
+  background-color: var(--soft);
+  content: "";
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.stage:hover .panel::before {
+  opacity: 1;
+}
+
+.shape {
+  position: relative;
+  width: 38%;
+  aspect-ratio: 1 / 1;
+  color: var(--accent);
+}
+
+.stage[data-shape="circle"] .shape { transition: transform 0.9s cubic-bezier(0.3, 0.9, 0.3, 1); }
+.stage[data-shape="square"] .shape { transition: transform 0.6s cubic-bezier(0.6, 0, 0.3, 1.4); }
+.stage[data-shape="triangle"] .shape { transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1); }
+.stage[data-shape="cross"] .shape { transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1); }
+
+.stage[data-shape="circle"]:hover .shape { transform: translateX(28%) rotate(360deg); }
+.stage[data-shape="square"]:hover .shape { transform: rotate(90deg) translateY(-6%); }
+.stage[data-shape="triangle"]:hover .shape { transform: rotate(240deg) scale(1.05); }
+.stage[data-shape="cross"]:hover .shape { transform: rotate(180deg) scale(1.12); }
+
+.heading {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: baseline;
+  margin: 0;
+  color: var(--primary);
+}
+
+.num {
+  font-family: var(--font-num);
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.name {
+  font-family: var(--font-en);
+  font-size: clamp(20px, 2.6vw, 28px);
+  font-weight: 800;
+}
+
+.description {
+  margin: 16px 0 0;
+  color: var(--textSub);
+  font-size: 14.5px;
+  line-height: 2;
+}
+
+.chip {
+  display: inline-block;
+  margin: 18px 0 0;
+  padding: 8px 14px;
+  background-color: var(--surfaceVariant);
+  color: var(--textSub);
+  font-size: 13px;
+  font-weight: 500;
+}

@@ -1,0 +1,55 @@
+.section {
+  margin-top: clamp(48px, 7vw, 88px);
+}
+
+.nearest {
+  margin: 16px 0 0;
+  color: var(--primary);
+  font-size: clamp(15px, 1.8vw, 17px);
+  font-weight: 700;
+  line-height: 1.7;
+}
+
+.text {
+  max-width: 46em;
+  margin: 0;
+  color: var(--textSub);
+  font-size: 14px;
+  line-height: 2;
+  text-wrap: pretty;
+}
+
+.walk {
+  margin-top: clamp(28px, 4vw, 44px);
+}
+
+.walkHeading {
+  margin: 0 0 14px;
+  color: var(--primary);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.walkBody {
+  display: grid;
+  grid-template-columns: minmax(0, 480px) minmax(0, 1fr);
+  gap: clamp(16px, 3vw, 32px);
+  align-items: start;
+}
+
+.walkText {
+  margin: 0;
+  color: var(--textSub);
+  font-size: 14px;
+  line-height: 2;
+}
+
+.walkLink {
+  margin-top: 14px;
+}
+
+@media (max-width: 767px) {
+  .walkBody {
+    grid-template-columns: 1fr;
+  }
+}

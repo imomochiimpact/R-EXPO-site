@@ -1,0 +1,30 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 13px var(--gutter);
+  background-color: var(--primary);
+}
+
+.logo {
+  display: block;
+  flex-shrink: 0;
+  transition:
+    opacity 0.4s var(--ease-out),
+    visibility 0.4s;
+}
+
+:global(html[data-hero-visible="true"]) .logo {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.logoImage {
+  display: block;
+  height: 32px;
+  width: auto;
+}
