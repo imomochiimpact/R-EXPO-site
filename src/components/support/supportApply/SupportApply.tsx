@@ -33,7 +33,8 @@ export default function SupportApply() {
       <section aria-labelledby="support-other-heading" data-reveal="">
         <SectionTitle id="support-other-heading" label="REQUEST" title="その他のお願い" />
         <p className={styles.note}>
-          メール・アプリ・ホームページなどで R-EXPOをご紹介いただける場合は、本サイトの URL（
+          メール・アプリ・ホームページなどで、
+          本サイトの URL（
           <a href={SITE_URL} className={styles.url}>
             {SITE_URL}
           </a>

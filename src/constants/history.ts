@@ -16,7 +16,7 @@ export const HISTORY: HistoryEntry[] = [
     ],
     stats: [
       { label: "来場者数", value: "約2500人" },
-      { label: "出展・発表団体", value: "—" },
+      { label: "出展・発表団体", value: "100以上" },
     ],
   },
 ];

@@ -10,7 +10,7 @@
   display: block;
   padding: 6px 0;
   color: var(--navy20);
-  font-size: 13px;
+  font-size: clamp(13px, 0.3vw + 10px, 15px);
   text-decoration: none;
   transition:
     color 0.3s,

@@ -30,6 +30,9 @@
   /* ===== Layout ===== */
   --content-max: calc(1180px + var(--gutter) * 2);
   --gutter: clamp(16px, 4vw, 56px);
+  --header-logo: clamp(36px, 1.2vw + 32px, 48px);
+  --header-pad: calc(var(--header-logo) * 0.4);
+  --header-h: calc(var(--header-logo) + var(--header-pad) * 2);
   --section-y: clamp(28px, 4vw, 56px);
   --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
 }

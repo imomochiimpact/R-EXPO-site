@@ -6,7 +6,8 @@
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  padding: 13px var(--gutter);
+  height: var(--header-h);
+  padding: 0 var(--gutter);
   background-color: var(--primary);
 }
 
@@ -25,6 +26,6 @@
 
 .logoImage {
   display: block;
-  height: 32px;
+  height: var(--header-logo);
   width: auto;
 }
