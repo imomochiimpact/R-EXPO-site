@@ -43,9 +43,16 @@ export const metadata: Metadata = {
     locale: "ja_JP",
     siteName: "R-EXPO 2027",
     description: SITE_DESCRIPTION,
+    images: [{
+      url: "https://r-expo.site/2027/brand/ogp.png",
+      width: 1200,
+      height: 630,
+      alt: "R-EXPO 2027",
+    }],
   },
   twitter: {
     card: "summary_large_image",
+    images: "https://r-expo.site/2027/brand/ogp.png",
   },
 };
 
