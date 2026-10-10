@@ -17,6 +17,16 @@ export default function HistoryDetail({ entry }: Props) {
         {entry.summary}
       </p>
 
+
+      <dl className={styles.stats} data-reveal="">
+        {entry.stats.map((stat) => (
+          <div key={stat.label} className={styles.stat}>
+            <dt className={styles.statLabel}>{stat.label}</dt>
+            <dd className={styles.statValue}>{stat.value}</dd>
+          </div>
+        ))}
+      </dl>
+
       <ul className={styles.photos}>
         {entry.photos.map((photo) => (
           <li key={photo.label} className={styles.photo} data-wide={photo.wide ? "true" : undefined} data-reveal="">
@@ -28,15 +38,6 @@ export default function HistoryDetail({ entry }: Props) {
           </li>
         ))}
       </ul>
-
-      <dl className={styles.stats} data-reveal="">
-        {entry.stats.map((stat) => (
-          <div key={stat.label} className={styles.stat}>
-            <dt className={styles.statLabel}>{stat.label}</dt>
-            <dd className={styles.statValue}>{stat.value}</dd>
-          </div>
-        ))}
-      </dl>
     </section>
   );
 }

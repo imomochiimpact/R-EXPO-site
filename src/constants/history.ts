@@ -15,7 +15,7 @@ export const HISTORY: HistoryEntry[] = [
       { label: "運営の生徒", wide: true },
     ],
     stats: [
-      { label: "来場者数", value: "約2500人" },
+      { label: "来場者数", value: "約3500人" },
       { label: "出展・発表団体", value: "100以上" },
     ],
   },
