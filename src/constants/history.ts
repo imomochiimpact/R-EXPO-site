@@ -7,7 +7,7 @@ export const HISTORY: HistoryEntry[] = [
     summary:
       "本校や他校による学術的な取り組みのプレゼンテーションや、生徒が推薦した国内外で活躍する中高生と北海道大学によるテーブルセッションなどを行いました。",
     photos: [
-      { label: "会場全景", wide: true },
+      { label: "バンド発表",src: "https://r-expo.site/2026/photos/band.webp", wide: true },
       { label: "プレゼンテーション" },
       { label: "テーブルセッション" },
       { label: "ブース" },
