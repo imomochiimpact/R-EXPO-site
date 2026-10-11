@@ -15,6 +15,7 @@ export default function Hero() {
         fill
         sizes="100vw"
         unoptimized
+        loading="eager"
         className={styles.bgImage}
       />
       <div className={styles.observer}>

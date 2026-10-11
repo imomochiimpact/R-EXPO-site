@@ -15,6 +15,7 @@ export default function LocationVenue() {
               fill
               sizes="(max-width: 767px) 100vw, 560px"
               unoptimized
+              loading="eager"
               className={styles.photoImage}
             />
           ) : (

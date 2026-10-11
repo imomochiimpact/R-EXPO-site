@@ -1,27 +1,25 @@
 import Link from "next/link";
-import { TOP_ARCHIVE } from "@/constants/top";
+import { LATEST_HISTORY } from "@/constants/history";
+import ArchiveMarquee from "./ArchiveMarquee";
 import styles from "./ArchivePreview.module.css";
 
 export default function ArchivePreview() {
+  const { year, title, photos } = LATEST_HISTORY;
+  const previews = photos.filter((photo) => photo.src);
+
   return (
     <section className={styles.archive} aria-labelledby="archive-heading">
       <div className={styles.inner}>
         <div className={styles.head} data-reveal="">
           <h2 id="archive-heading" className={styles.label}>
-            ARCHIVE {TOP_ARCHIVE.year}
+            ARCHIVE {year}
           </h2>
-          <Link href={`/history/${TOP_ARCHIVE.year}`} className={styles.more}>
-            すべて見る →
+          <Link href={`/history`} className={styles.more}>
+            過去開催の記録を見る →
           </Link>
         </div>
-        <ul className={styles.grid}>
-          {TOP_ARCHIVE.photos.map((label) => (
-            <li key={label} className={styles.photo} data-reveal="">
-              <span className={styles.placeholder}>{label}</span>
-            </li>
-          ))}
-        </ul>
       </div>
+      <ArchiveMarquee photos={previews} href={`/history/${year}`} title={title} />
     </section>
   );
 }

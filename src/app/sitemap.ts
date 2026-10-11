@@ -8,7 +8,7 @@ export const dynamic = "force-static";
 export default function sitemap(): MetadataRoute.Sitemap {
   const paths = [
     "/",
-    ...NAV_ITEMS.filter((item) => item.published).map((item) => item.href),
+    ...NAV_ITEMS.filter((item) => item.published && item.href !== "/history").map((item) => item.href),
     ...HISTORY.map((entry) => `/history/${entry.year}`),
   ];
 

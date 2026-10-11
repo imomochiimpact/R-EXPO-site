@@ -1,4 +1,5 @@
 .archive {
+  padding-bottom: clamp(32px, 5vw, 64px);
   border-top: 1px solid var(--textSecondary);
   background-color: var(--primary);
 }
@@ -6,7 +7,7 @@
 .inner {
   max-width: var(--content-max);
   margin: 0 auto;
-  padding: clamp(32px, 5vw, 64px) var(--gutter);
+  padding: clamp(32px, 5vw, 64px) var(--gutter) 0;
 }
 
 .head {
@@ -33,25 +34,73 @@
   text-decoration: none;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
-  gap: 12px;
+.marquee {
   margin: 22px 0 0;
-  padding: 0;
+  overflow: hidden;
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  animation: marquee var(--duration) linear infinite;
+}
+
+.marquee:focus-within .track {
+  animation-play-state: paused;
+}
+
+.group {
+  display: flex;
+  gap: 12px;
+  margin: 0;
+  padding: 0 12px 0 0;
   list-style: none;
 }
 
 .photo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 0;
+  position: relative;
+  flex: 0 0 auto;
+  width: clamp(220px, 26vw, 340px);
   aspect-ratio: 3 / 2;
-  background-color: var(--white);
+  overflow: hidden;
+  background-color: var(--textSecondary);
 }
 
-.placeholder {
-  color: var(--textMuted);
+.photoLink {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+.photoImage {
+  object-fit: cover;
+}
+
+.caption {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 32px 12px 10px;
+  background: linear-gradient(to top, rgb(0 22 74 / 0.8), rgb(0 22 74 / 0));
+  color: var(--white);
   font-size: 12px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    overflow-x: auto;
+  }
+
+  .track {
+    animation: none;
+  }
 }
