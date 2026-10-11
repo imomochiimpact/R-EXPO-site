@@ -1,5 +1,5 @@
 export type HistoryPhoto = {
-  label: string;
+  label: string | null;
   src?: string;
   wide?: boolean;
 };
@@ -12,7 +12,7 @@ export type HistoryStat = {
 export type HistoryEntry = {
   year: string;
   title: string;
-  summary: string;
+  summary: string[];
   photos: HistoryPhoto[];
   stats: HistoryStat[];
 };
