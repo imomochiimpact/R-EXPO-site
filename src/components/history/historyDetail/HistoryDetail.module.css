@@ -89,12 +89,8 @@
 
 .photoImage {
   object-fit: cover;
-  transition: transform 0.8s var(--ease-out);
 }
 
-.photo:hover .photoImage {
-  transform: scale(1.04);
-}
 
 .caption {
   position: absolute;
