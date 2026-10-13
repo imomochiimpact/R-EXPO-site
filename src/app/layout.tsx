@@ -3,6 +3,7 @@ import { Inter, Oswald, Zen_Kaku_Gothic_New } from "next/font/google";
 import Header from "@/components/common/header/Header";
 import Footer from "@/components/common/footer/Footer";
 import RouteBar from "@/components/common/routeBar/RouteBar";
+import DragGuard from "@/components/common/dragGuard/DragGuard";
 import { SITE_DESCRIPTION, SITE_URL } from "@/constants/site";
 import "./globals.css";
 
@@ -71,6 +72,7 @@ export default function RootLayout({
         <RouteBar />
         {children}
         <Footer />
+        <DragGuard />
       </body>
     </html>
   );

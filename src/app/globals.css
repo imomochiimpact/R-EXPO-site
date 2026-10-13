@@ -58,6 +58,16 @@ a {
 
 img {
   max-width: 100%;
+  pointer-events: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+}
+
+a:has(img) {
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
 }
 
 [data-reveal="hidden"] {

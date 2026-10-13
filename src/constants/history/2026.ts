@@ -17,7 +17,7 @@ export const HISTORY_2026: HistoryEntry = {
     { label: "東京科学大学による企画展示", src: "https://r-expo.site/2026/photos/booth2.webp" },
     { label: null, src: "https://r-expo.site/2026/photos/booth3.webp" },
     { label: "北昴×慶祥 世代を超えるYOSAKOIソーラン", src: "https://r-expo.site/2026/photos/Yosakoi.webp", wide: true },
-    { label: "立命館大学チアリーディング部による特別演舞", src: "https://r-expo.site/2026/photos/cheer.webp" },
+    { label: "立命館大学チアリーダー部による特別パフォーマンス", src: "https://r-expo.site/2026/photos/cheer.webp" },
     { label: "R-Union 立命館大学生による大学生活のすゝめ", src: "https://r-expo.site/2026/photos/RU.webp" },
   ],
   stats: [
