@@ -1,0 +1,93 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  background: var(--bgScreen);
+  transition: opacity 0.4s ease;
+}
+.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* 同じセッションで2回目以降は最初から出さない（layout の head のスクリプトが data-loaded を付ける） */
+:global(html[data-loaded]) .overlay {
+  display: none;
+}
+
+.mark {
+  position: relative;
+  width: 136px;
+  height: 200px;
+}
+.bulb {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+/* ① パーツ：最初は離れた場所で透明。.in が付くと本来の位置に戻る */
+.part {
+  fill: #323232;
+  transform-box: fill-box;
+  transform-origin: center;
+  opacity: 0;
+  transform: translate(var(--x), var(--y)) rotate(var(--r));
+  transition:
+    opacity 0.65s var(--ease-out),
+    transform 0.65s var(--ease-out);
+}
+.part.in {
+  opacity: 1;
+  transform: none;
+}
+
+/* ② 円：.finish が付いたときだけ広がる */
+.ring {
+  position: absolute;
+  left: 50%;
+  top: 76px;
+  width: 200px;
+  height: 200px;
+  margin: -100px 0 0 -100px;
+  border: 2px solid var(--c);
+  border-radius: 50%;
+  opacity: 0;
+}
+.finish .ring {
+  animation: ripple 0.7s var(--ease-out) both;
+  animation-delay: calc(var(--i) * 0.06s);
+}
+@keyframes ripple {
+  from { opacity: 0.8; transform: scale(0.5); }
+  to   { opacity: 0;   transform: scale(2.2); }
+}
+
+/* ③ ロゴタイプ：.finish が付いたら出る */
+.word {
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 0.4s var(--ease-out),
+    transform 0.4s var(--ease-out);
+}
+.finish .word {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .part,
+  .word {
+    transition: none;
+  }
+  .finish .ring {
+    animation: none;
+  }
+}

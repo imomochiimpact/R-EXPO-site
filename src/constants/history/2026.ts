@@ -8,7 +8,7 @@ export const HISTORY_2026: HistoryEntry = {
   ],
   photos: [
     { label: null, src: "https://r-expo.site/2026/photos/ceremony.webp" , wide: true },
-    { label: "海外研修・留学発表", src: "https://r-expo.site/2026/photos/Thai.webp" },
+    { label: "海外研修・留学報告発表", src: "https://r-expo.site/2026/photos/Thai.webp" },
     { label: "課題研究ポスターセッション", src: "https://r-expo.site/2026/photos/poster.webp" },
     { label: "ピアノ等の芸術発表", src: "https://r-expo.site/2026/photos/piano.webp", wide: true },
     { label: "生徒主催e-sports大会", src: "https://r-expo.site/2026/photos/e-sports.webp" },
@@ -17,7 +17,7 @@ export const HISTORY_2026: HistoryEntry = {
     { label: "東京科学大学による企画展示", src: "https://r-expo.site/2026/photos/booth2.webp" },
     { label: null, src: "https://r-expo.site/2026/photos/booth3.webp" },
     { label: "北昴×慶祥 世代を超えるYOSAKOIソーラン", src: "https://r-expo.site/2026/photos/Yosakoi.webp", wide: true },
-    { label: "立命館大学チアリーダー部による特別パフォーマンス", src: "https://r-expo.site/2026/photos/cheer.webp" },
+    { label: "立命館大学チアリーダー部 特別パフォーマンス", src: "https://r-expo.site/2026/photos/cheer.webp" },
     { label: "R-Union 立命館大学生による大学生活のすゝめ", src: "https://r-expo.site/2026/photos/RU.webp" },
   ],
   stats: [

@@ -4,8 +4,10 @@ import Header from "@/components/common/header/Header";
 import Footer from "@/components/common/footer/Footer";
 import RouteBar from "@/components/common/routeBar/RouteBar";
 import DragGuard from "@/components/common/dragGuard/DragGuard";
+import { LOADED_CHECK_SCRIPT } from "@/constants/loader";
 import { SITE_DESCRIPTION, SITE_URL } from "@/constants/site";
 import "./globals.css";
+import Loeder from "@/components/common/Loader/Loader";
 
 // 日本語
 const zenKaku = Zen_Kaku_Gothic_New({
@@ -66,8 +68,13 @@ export default function RootLayout({
     <html
       lang="ja"
       className={`${zenKaku.variable} ${inter.variable} ${oswald.variable}`}
+      suppressHydrationWarning
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: LOADED_CHECK_SCRIPT }} />
+      </head>
       <body>
+        <Loeder />
         <Header />
         <RouteBar />
         {children}
