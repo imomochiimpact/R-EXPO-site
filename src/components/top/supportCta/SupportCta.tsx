@@ -1,5 +1,4 @@
 import FillButton from "@/components/common/fillButton/FillButton";
-import { EXTERNAL_LINKS } from "@/constants/links";
 import styles from "./SupportCta.module.css";
 
 export default function SupportCta() {
@@ -8,7 +7,7 @@ export default function SupportCta() {
       <div className={styles.inner}>
         <div data-reveal="">
           <p className={styles.label}>SUPPORT</p>
-          <h2 id="support-heading" className={styles.title}>
+          <h2 id="support-heading" className={styles.title} data-word="SUPPORT">
             寄付・協賛のお願い
           </h2>
           <p className={styles.lead}>
@@ -16,10 +15,9 @@ export default function SupportCta() {
           </p>
         </div>
         <div data-reveal="">
-          <FillButton href={EXTERNAL_LINKS.supportForm} variant="white" external>
-            申込フォームへ
+          <FillButton href="/support" variant="white">
+            詳しくはこちら
           </FillButton>
-          <p className={styles.note}>外部のフォームが開きます。</p>
         </div>
       </div>
     </section>

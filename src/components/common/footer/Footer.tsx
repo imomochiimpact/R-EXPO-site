@@ -16,7 +16,7 @@ export default function Footer() {
             unoptimized
             className={styles.logoImage}
           />
-          <p className={styles.org}>立命館慶祥中学校・高等学校 行事運営委員会</p>
+          <p className={styles.org}>立命館慶祥中学校・高等学校 行事運営委員会 / 任意団体C-Lab</p>
         </div>
         <div className={styles.buttons}>
           <FillButton href={EXTERNAL_LINKS.school} size="sm" external>
@@ -26,7 +26,7 @@ export default function Footer() {
             Instagram
           </FillButton>
         </div>
-        <small className={styles.credit}>© Tsubasa Takayama, R-EXPO 2027</small>
+        <small className={styles.credit}>© 2027 Tsubasa Takayama</small>
       </div>
     </footer>
   );

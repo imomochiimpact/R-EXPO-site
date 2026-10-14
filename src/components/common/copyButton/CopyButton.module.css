@@ -1,0 +1,38 @@
+.button {
+  display: inline-grid;
+  place-items: center;
+  flex-shrink: 0;
+  min-height: 44px;
+  padding: 0 16px;
+  border: 0;
+  background-color: var(--primary);
+  color: var(--white);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.text {
+  grid-area: 1 / 1;
+  white-space: nowrap;
+}
+
+.text[aria-hidden="true"] {
+  visibility: hidden;
+}
+
+.button:hover {
+  background-color: var(--textSecondary);
+}
+
+.button[data-status="done"] {
+  background-color: var(--accentGreen);
+  color: var(--primary);
+}
+
+.button[data-status="error"] {
+  background-color: var(--accentPink);
+  color: var(--primary);
+}

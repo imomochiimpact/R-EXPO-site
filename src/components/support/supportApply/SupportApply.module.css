@@ -55,12 +55,27 @@
   text-wrap: pretty;
 }
 
+.urlBox {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16px;
+  padding: 6px 6px 6px 16px;
+  border: 1px solid var(--border);
+}
+
 .url {
-  border-bottom: 1px solid var(--accentBlue);
+  min-width: 0;
   color: var(--primary);
   font-family: var(--font-en);
+  font-size: 15px;
   text-decoration: none;
   overflow-wrap: anywhere;
+}
+
+.url:hover {
+  text-decoration: underline;
 }
 
 .sponsors {

@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import ComingSoon from "@/components/common/comingSoon/ComingSoon";
 import PageHeader from "@/components/common/pageHeader/PageHeader";
 import HistoryDetail from "@/components/history/historyDetail/HistoryDetail";
 import HistoryTabs from "@/components/history/historyTabs/HistoryTabs";
 import { LATEST_HISTORY } from "@/constants/history";
+import { PAGE_OPEN } from "@/constants/pages";
 
 export const metadata: Metadata = {
   title: "過去の開催",
@@ -10,6 +12,14 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
+  if (!PAGE_OPEN.history) {
+    return (
+      <main>
+        <ComingSoon label="HISTORY" title="過去の開催" tone="purple" />
+      </main>
+    );
+  }
+
   return (
     <main>
       <PageHeader

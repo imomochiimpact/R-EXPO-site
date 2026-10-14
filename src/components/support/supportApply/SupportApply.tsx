@@ -1,3 +1,4 @@
+import CopyButton from "@/components/common/copyButton/CopyButton";
 import FillButton from "@/components/common/fillButton/FillButton";
 import SectionTitle from "@/components/common/sectionTitle/SectionTitle";
 import { EXTERNAL_LINKS } from "@/constants/links";
@@ -33,13 +34,14 @@ export default function SupportApply() {
       <section aria-labelledby="support-other-heading" data-reveal="">
         <SectionTitle id="support-other-heading" label="REQUEST" title="その他のお願い" />
         <p className={styles.note}>
-          メール・アプリ・ホームページなどで、
-          本サイトの URL（
+          メール・アプリ・ホームページなどで、本サイトの URL をご案内いただけますと幸いです。
+        </p>
+        <div className={styles.urlBox}>
           <a href={SITE_URL} className={styles.url}>
             {SITE_URL}
           </a>
-          ）をご案内いただけますと幸いです。
-        </p>
+          <CopyButton text={SITE_URL} label="URLをコピー" />
+        </div>
         <div className={styles.sponsors}>
           <p className={styles.sponsorsTitle}>ご支援いただいた皆さまへ</p>
           <p className={styles.sponsorsText}>ご紹介ページは後日公開します。</p>
