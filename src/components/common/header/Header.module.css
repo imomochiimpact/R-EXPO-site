@@ -24,6 +24,10 @@
   visibility: hidden;
 }
 
+:global(html[data-transition]) .logo {
+  transition: none;
+}
+
 .logoImage {
   display: block;
   height: var(--header-logo);
