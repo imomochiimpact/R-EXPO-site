@@ -9,7 +9,20 @@
 }
 
 .overlay[data-tone="primary"] { --accent: var(--primary); }
-.overlay[data-tone="blue"] { --accent: var(--accentBlue); }
-.overlay[data-tone="green"] { --accent: var(--accentGreen); }
-.overlay[data-tone="purple"] { --accent: var(--accentPurple); }
-.overlay[data-tone="pink"] { --accent: var(--accentPink); }
+.overlay[data-tone="blue"] { --accent: var(--accentBlue); --reveal-bg: var(--blue20); --line: var(--accentBlueSoft); }
+.overlay[data-tone="green"] { --accent: var(--accentGreen); --reveal-bg: #d9f3f4; --line: var(--accentGreenSoft); }
+.overlay[data-tone="purple"] { --accent: var(--accentPurple); --reveal-bg: #e1e5fb; --line: var(--accentPurpleSoft); }
+.overlay[data-tone="pink"] { --accent: var(--accentPink); --reveal-bg: #ffe0e3; --line: var(--accentPinkSoft); }
+
+/* RevealCard のホバーと同じ縞。clip-path は Provider が塗りの矩形に合わせて書き込む */
+.stripe {
+  position: absolute;
+  inset: 0;
+  background-color: var(--reveal-bg);
+  background-image: repeating-linear-gradient(45deg, var(--line) 0 2px, transparent 2px 14px);
+  will-change: clip-path;
+}
+
+.overlay[data-tone="primary"] .stripe {
+  display: none;
+}
