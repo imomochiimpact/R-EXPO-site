@@ -1,5 +1,5 @@
-import Image from "next/image";
 import type { HistoryEntry } from "@/types/history";
+import LoaderImage from "@/components/common/loaderImage/LoaderImage";
 import styles from "./HistoryDetail.module.css";
 
 type Props = {
@@ -42,7 +42,7 @@ export default function HistoryDetail({ entry }: Props) {
             >
               {photo.src ? (
                 <figure className={styles.figure}>
-                  <Image
+                  <LoaderImage
                     src={photo.src}
                     alt={photo.label ?? `${entry.title}の様子`}
                     fill
