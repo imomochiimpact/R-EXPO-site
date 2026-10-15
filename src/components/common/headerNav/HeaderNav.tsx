@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import TransitionLink from "@/components/common/pageTransration/TransrationLink";
 import { usePathname } from "next/navigation";
 import { NAV_ITEMS } from "@/constants/navigation";
 import styles from "./HeaderNav.module.css";
@@ -16,14 +16,16 @@ export default function HeaderNav() {
 
           return (
             <li key={item.href}>
-              <Link
+              <TransitionLink
                 href={item.href}
+                origin="underline"
+                tone={item.tone}
                 className={styles.link}
                 data-tone={item.tone}
                 aria-current={isCurrent ? "page" : undefined}
               >
                 {item.label}
-              </Link>
+              </TransitionLink>
             </li>
           );
         })}

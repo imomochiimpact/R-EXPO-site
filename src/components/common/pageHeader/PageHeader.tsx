@@ -16,7 +16,7 @@ export default function PageHeader({ label, title, tone, lead, extra, children }
     <section className={styles.header} data-tone={tone}>
       <div className={styles.inner}>
         <p className={styles.label}>
-          <span className={styles.bar} aria-hidden="true" />
+          <span className={styles.bar} data-transition-target="" aria-hidden="true" />
           {label}
         </p>
         <h1 className={styles.title}>

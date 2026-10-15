@@ -12,7 +12,6 @@
 }
 
 .bar[data-tone="primary"] { --accent: var(--white); }
-.bar[data-tone="secondary"] { --accent: var(--navy20); }
 .bar[data-tone="blue"] { --accent: var(--accentBlue); }
 .bar[data-tone="green"] { --accent: var(--accentGreen); }
 .bar[data-tone="purple"] { --accent: var(--accentPurple); }

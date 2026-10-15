@@ -1,4 +1,4 @@
-import Link from "next/link";
+import TransitionLink from "@/components/common/pageTransration/TransrationLink";
 import styles from "./ConceptIntro.module.css";
 
 export default function ConceptIntro() {
@@ -11,9 +11,9 @@ export default function ConceptIntro() {
       <p className={styles.summary}>
         コンセプトの説明文がここに入ります。
       </p>
-      <Link href="/about" className={styles.more}>
+      <TransitionLink href="/about" origin="underline" className={styles.more}>
         コンセプト・ご挨拶を読む →
-      </Link>
+      </TransitionLink>
     </section>
   );
 }

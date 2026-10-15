@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import TransitionLink from "@/components/common/pageTransration/TransrationLink";
 import HeaderNav from "../headerNav/HeaderNav";
 import MobileMenu from "../mobileMenu/MobileMenu";
 import styles from "./Header.module.css";
@@ -7,7 +7,7 @@ import styles from "./Header.module.css";
 export default function Header() {
   return (
     <header className={styles.header}>
-      <Link href="/" className={styles.logo}>
+      <TransitionLink href="/" origin="self" className={styles.logo}>
         <Image
           src="/logo/LogoH_white.svg"
           alt="R-EXPO 2027"
@@ -16,7 +16,7 @@ export default function Header() {
           unoptimized
           className={styles.logoImage}
         />
-      </Link>
+      </TransitionLink>
 
       <HeaderNav />
       <MobileMenu />

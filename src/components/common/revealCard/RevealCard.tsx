@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import TransitionLink from "@/components/common/pageTransration/TransrationLink";
 import { useRef } from "react";
 import type { PointerEvent } from "react";
 import type { AccentTone } from "@/types/tone";
@@ -26,11 +26,13 @@ export default function RevealCard({ href, num, title, sub, tone }: Props) {
   };
 
   return (
-    <Link
+    <TransitionLink
       ref={ref}
       href={href}
       className={styles.card}
       data-tone={tone}
+      origin="border-left"
+      tone={tone}
       onPointerEnter={(e) => {
         setPosition(e);
         e.currentTarget.dataset.on = "true";
@@ -51,6 +53,6 @@ export default function RevealCard({ href, num, title, sub, tone }: Props) {
           →
         </span>
       </span>
-    </Link>
+    </TransitionLink>
   );
 }

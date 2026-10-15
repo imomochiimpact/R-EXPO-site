@@ -1,4 +1,4 @@
-import Link from "next/link";
+import TransitionLink from "@/components/common/pageTransration/TransrationLink";
 import styles from "./NotFoundMessage.module.css";
 
 export default function NotFoundMessage() {
@@ -9,9 +9,9 @@ export default function NotFoundMessage() {
       <p className={styles.text}>
         お探しのページは移動または削除された可能性があります。URLをご確認のうえ、トップページからお探しください。
       </p>
-      <Link href="/" className={styles.back}>
+      <TransitionLink href="/" origin="underline" className={styles.back}>
         ← TOP
-      </Link>
+      </TransitionLink>
     </section>
   );
 }

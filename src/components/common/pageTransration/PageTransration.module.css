@@ -1,0 +1,15 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200; /* Header・MobileMenu より上 */
+  background-color: var(--accent);
+  pointer-events: none;
+  visibility: hidden;
+  will-change: clip-path;
+}
+
+.overlay[data-tone="primary"] { --accent: var(--primary); }
+.overlay[data-tone="blue"] { --accent: var(--accentBlue); }
+.overlay[data-tone="green"] { --accent: var(--accentGreen); }
+.overlay[data-tone="purple"] { --accent: var(--accentPurple); }
+.overlay[data-tone="pink"] { --accent: var(--accentPink); }

@@ -108,22 +108,30 @@
 }
 
 .link {
+  position: relative;
   display: flex;
   gap: 14px;
   align-items: baseline;
   padding: 14px 0 14px 14px;
   border-bottom: 1px solid var(--textSecondary);
-  box-shadow: inset 4px 0 0 var(--accent);
   color: var(--white);
   text-decoration: none;
 }
 
 .link[data-tone="primary"] { --accent: var(--navy20); }
-.link[data-tone="secondary"] { --accent: var(--navy20); }
 .link[data-tone="blue"] { --accent: var(--accentBlue); }
 .link[data-tone="green"] { --accent: var(--accentGreen); }
 .link[data-tone="purple"] { --accent: var(--accentPurple); }
 .link[data-tone="pink"] { --accent: var(--accentPink); }
+
+.edge {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 4px;
+  background-color: var(--accent);
+}
 
 .num {
   width: 28px;

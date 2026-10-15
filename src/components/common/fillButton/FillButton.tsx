@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import TransitionLink from "@/components/common/pageTransration/TransrationLink";
 import type { PointerEvent, ReactNode } from "react";
 import styles from "./FillButton.module.css";
 
@@ -54,8 +54,8 @@ export default function FillButton({
       {content}
     </a>
   ) : (
-    <Link href={href} className={cls} data-variant={variant} data-size={size} {...handlers}>
+    <TransitionLink href={href} origin="self" className={cls} data-variant={variant} data-size={size} {...handlers}>
       {content}
-    </Link>
+    </TransitionLink>
   );
 }

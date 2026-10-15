@@ -1,4 +1,4 @@
-import Link from "next/link";
+import TransitionLink from "@/components/common/pageTransration/TransrationLink";
 import PageHeader from "@/components/common/pageHeader/PageHeader";
 import type { AccentTone } from "@/types/tone";
 import styles from "./ComingSoon.module.css";
@@ -20,9 +20,9 @@ export default function ComingSoon({ label, title, tone }: Props) {
         <p className={styles.text} data-reveal="">
           内容が決まり次第、こちらでお知らせします。
         </p>
-        <Link href="/" className={styles.back}>
+        <TransitionLink href="/" origin="underline" className={styles.back}>
           ← TOP
-        </Link>
+        </TransitionLink>
       </section>
     </>
   );

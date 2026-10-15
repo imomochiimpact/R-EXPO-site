@@ -19,7 +19,6 @@
 }
 
 .link[data-tone="primary"] { --accent: var(--primary); }
-.link[data-tone="secondary"] { --accent: var(--textSecondary); }
 .link[data-tone="blue"] { --accent: var(--accentBlue); }
 .link[data-tone="green"] { --accent: var(--accentGreen); }
 .link[data-tone="purple"] { --accent: var(--accentPurple); }

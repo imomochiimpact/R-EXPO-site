@@ -1,4 +1,4 @@
-import Link from "next/link";
+import TransitionLink from "@/components/common/pageTransration/TransrationLink";
 import { LATEST_HISTORY } from "@/constants/history";
 import ArchiveMarquee from "./ArchiveMarquee";
 import styles from "./ArchivePreview.module.css";
@@ -14,9 +14,9 @@ export default function ArchivePreview() {
           <h2 id="archive-heading" className={styles.label}>
             ARCHIVE {year}
           </h2>
-          <Link href={`/history`} className={styles.more}>
+          <TransitionLink href={`/history`} origin="underline" className={styles.more}>
             過去開催の記録を見る →
-          </Link>
+          </TransitionLink>
         </div>
       </div>
       <ArchiveMarquee photos={previews} href={`/history/${year}`} title={title} />

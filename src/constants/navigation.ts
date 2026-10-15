@@ -1,4 +1,5 @@
 import type { NavItem } from "@/types/navigation";
+import type { TransitionTone } from "@/types/tone";
 import { PAGE_OPEN } from "./pages";
 
 export const NAV_ITEMS: NavItem[] = [
@@ -8,3 +9,8 @@ export const NAV_ITEMS: NavItem[] = [
   { label: "寄付・協賛", href: "/support", tone: "blue", published: PAGE_OPEN.support },
   { label: "過去の開催", href: "/history", tone: "purple", published: PAGE_OPEN.history },
 ];
+
+export const toneForHref = (href: string): TransitionTone => {
+  if (href === "/") return "primary";
+  return NAV_ITEMS.find((item) => href.startsWith(item.href))?.tone ?? "blue";
+};

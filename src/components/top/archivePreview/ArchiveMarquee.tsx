@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import TransitionLink from "@/components/common/pageTransration/TransrationLink";
 import type { CSSProperties } from "react";
 import type { HistoryPhoto } from "@/types/history";
 import styles from "./ArchivePreview.module.css";
@@ -27,7 +27,7 @@ export default function ArchiveMarquee({ photos, href, title }: Props) {
               const hidden = copy === 1 || i >= photos.length;
               return (
                 <li key={`${photo.src}-${i}`} className={styles.photo} aria-hidden={hidden ? true : undefined}>
-                  <Link href={href} className={styles.photoLink} tabIndex={hidden ? -1 : undefined}>
+                  <TransitionLink href={href} origin="self" className={styles.photoLink} tabIndex={hidden ? -1 : undefined}>
                     <Image
                       src={photo.src!}
                       alt={hidden ? "" : (photo.label ?? `${title}の様子`)}
@@ -37,7 +37,7 @@ export default function ArchiveMarquee({ photos, href, title }: Props) {
                       className={styles.photoImage}
                     />
                     {photo.label && <span className={styles.caption}>{photo.label}</span>}
-                  </Link>
+                  </TransitionLink>
                 </li>
               );
             })}

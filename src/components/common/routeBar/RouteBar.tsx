@@ -1,3 +1,6 @@
+// 今もう使ってないけど一応残す
+
+
 "use client";
 
 import { usePathname } from "next/navigation";

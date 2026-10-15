@@ -1,4 +1,4 @@
-import Link from "next/link";
+import TransitionLink from "@/components/common/pageTransration/TransrationLink";
 import { NEWS } from "@/constants/news";
 import styles from "./NewsList.module.css";
 
@@ -21,13 +21,13 @@ export default function NewsList() {
             {NEWS.slice(0, TOP_COUNT).map((item) => (
               <li key={`${item.date}-${item.title}`}>
                 {item.href ? (
-                  <Link href={item.href} className={`${styles.item} ${styles.linked}`}>
+                  <TransitionLink href={item.href} origin="self" className={`${styles.item} ${styles.linked}`}>
                     <time className={styles.date}>{item.date}</time>
                     <span className={styles.title}>{item.title}</span>
                     <span className={styles.arrow} aria-hidden="true">
                       →
                     </span>
-                  </Link>
+                  </TransitionLink>
                 ) : (
                   <div className={styles.item}>
                     <time className={styles.date}>{item.date}</time>

@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import TransitionLink from "@/components/common/pageTransration/TransrationLink";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { EXTERNAL_LINKS } from "@/constants/links";
@@ -62,7 +62,12 @@ export default function MobileMenu() {
       {open && (
         <div id="mobile-menu" role="dialog" aria-modal="true" aria-label="メニュー" className={styles.overlay}>
           <div className={styles.top}>
-            <Link href="/" className={styles.logo} onClick={() => setOpen(false)}>
+            <TransitionLink
+              href="/"
+              origin="self"
+              className={styles.logo}
+              onClick={() => pathname === "/" && setOpen(false)}
+            >
               <Image
                 src="/logo/LogoH_white.svg"
                 alt="R-EXPO 2027"
@@ -71,7 +76,7 @@ export default function MobileMenu() {
                 unoptimized
                 className={styles.logoImage}
               />
-            </Link>
+            </TransitionLink>
             <button
               ref={closeButtonRef}
               type="button"
@@ -92,16 +97,18 @@ export default function MobileMenu() {
                   className={styles.item}
                   style={{ animationDelay: `${0.18 + i * 0.05}s` }}
                 >
-                  <Link
+                  <TransitionLink
                     href={item.href}
+                    tone={item.tone}
                     className={styles.link}
                     data-tone={item.tone}
                     aria-current={pathname === item.href ? "page" : undefined}
-                    onClick={() => setOpen(false)}
+                    onClick={() => pathname === item.href && setOpen(false)}
                   >
+                    <span className={styles.edge} data-transition-origin="" aria-hidden="true" />
                     <span className={styles.num}>{String(i + 1).padStart(2, "0")}</span>
                     <span className={styles.label}>{item.label}</span>
-                  </Link>
+                  </TransitionLink>
                 </li>
               ))}
             </ul>

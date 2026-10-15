@@ -1,4 +1,4 @@
-import Link from "next/link";
+import TransitionLink from "@/components/common/pageTransration/TransrationLink";
 import { HISTORY } from "@/constants/history";
 import styles from "./HistoryTabs.module.css";
 
@@ -12,13 +12,14 @@ export default function HistoryTabs({ current }: Props) {
       <ul className={styles.tabs}>
         {HISTORY.map((entry) => (
           <li key={entry.year}>
-            <Link
+            <TransitionLink
               href={`/history/${entry.year}`}
+              origin="self"
               className={styles.tab}
               aria-current={entry.year === current ? "page" : undefined}
             >
               {entry.year}
-            </Link>
+            </TransitionLink>
           </li>
         ))}
       </ul>
