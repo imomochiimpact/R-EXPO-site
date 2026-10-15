@@ -13,8 +13,12 @@
   padding: 12px;
 }
 
-.root[data-state="fade"] {
+.root[data-state="loaded"] {
   opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 400ms var(--ease-out),
+    visibility 0s 400ms;
 }
 
 .marks {
@@ -41,12 +45,23 @@
   background-color: var(--surfaceVariant);
 }
 
+.mark[data-shape="circle"] { color: var(--accentBlue); }
+.mark[data-shape="square"] { color: var(--accentGreen); }
+.mark[data-shape="triangle"] { color: var(--accentPink); }
+.mark[data-shape="cross"] { color: var(--accentPurple); }
+
 .shape {
   position: relative;
   display: block;
   width: 100%;
   height: 100%;
   transform-origin: 50% 100%;
+}
+
+.shape svg {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .root[data-state="error"] .shape {

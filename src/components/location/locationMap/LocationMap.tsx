@@ -1,3 +1,4 @@
+import LoaderFrame from "@/components/common/loaderFrame/LoaderFrame";
 import styles from "./LocationMap.module.css";
 
 type Props = {
@@ -8,7 +9,7 @@ type Props = {
 export default function LocationMap({ src, title }: Props) {
   return (
     <div className={styles.map}>
-      <iframe
+      <LoaderFrame
         src={src}
         title={title}
         loading="lazy"

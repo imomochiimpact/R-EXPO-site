@@ -1,4 +1,4 @@
-import Image from "next/image";
+import LoaderImage from "@/components/common/loaderImage/LoaderImage";
 import FillButton from "@/components/common/fillButton/FillButton";
 import { EVENT } from "@/constants/event";
 import styles from "./LocationVenue.module.css";
@@ -9,7 +9,7 @@ export default function LocationVenue() {
       <div className={styles.grid}>
         <div className={styles.photo} data-reveal="">
           {EVENT.venueImage.src ? (
-            <Image
+            <LoaderImage
               src={EVENT.venueImage.src}
               alt={EVENT.venueImage.alt}
               fill
