@@ -11,9 +11,8 @@ type Start = (href: string, origin: DOMRect, tone: TransitionTone) => void;
 const TransitionContext = createContext<Start | null>(null);
 export const usePageTransition = () => useContext(TransitionContext);
 
-// 横（起点の高さのまま横幅いっぱいの帯へ）→ 縦（全面へ）の2段階。戻りは逆順
-const WIDE_MS = 260;
-const TALL_MS = 360;
+const WIDE_MS = 240;
+const TALL_MS = 300;
 const FALLBACK_MS = 4000; // 遷移が終わらない場合の保険
 const EASE_IN_OUT = "cubic-bezier(0.65, 0, 0.25, 1)";
 const EASE_OUT = "cubic-bezier(0.2, 0.7, 0.2, 1)";

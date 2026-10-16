@@ -25,6 +25,16 @@
   letter-spacing: 0.18em;
 }
 
+.labelText {
+  transition: opacity 0.3s var(--ease-out);
+}
+
+/* 遷移の帯がバーへ縮む間は文字を隠し、収まってから出す */
+:global(html[data-transition]) .labelText {
+  opacity: 0;
+  transition: none;
+}
+
 .bar {
   width: 124px;
   height: 6px;
