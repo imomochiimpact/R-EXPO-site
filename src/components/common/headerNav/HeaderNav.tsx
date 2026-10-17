@@ -9,7 +9,7 @@ export default function HeaderNav() {
   const pathname = usePathname();
 
   return (
-    <nav className={styles.nav} aria-label="メインメニュー">
+    <nav className={styles.nav} aria-label="メインメニュー" data-transition-edge>
       <ul className={styles.list}>
         {NAV_ITEMS.map((item) => {
           const isCurrent = pathname.startsWith(item.href);

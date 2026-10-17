@@ -29,6 +29,18 @@ const originRect = (el: HTMLElement, origin: Origin): DOMRect => {
   return r;
 };
 
+// HeaderNav.module.css の .link の高さと同じ計算：ロゴ下端 + ロゴ高さ×0.12
+const EDGE_RATIO = 0.12;
+
+// ヘッダー（ナビ・ロゴ）からの遷移なら、下線の高さの y を返す
+const headerEdge = (el: HTMLElement): number | undefined => {
+  if (!el.closest("[data-transition-edge]")) return undefined;
+  const logo = document.querySelector<HTMLElement>("[data-header-logo]");
+  if (!logo) return undefined;
+  const r = logo.getBoundingClientRect();
+  return r.bottom + r.height * EDGE_RATIO;
+};
+
 const normalize = (p: string) => p.replace(/\/$/, "") || "/";
 
 export default function TransitionLink({ href, tone, origin = "self", onClick, ...rest }: Props) {
@@ -42,7 +54,12 @@ export default function TransitionLink({ href, tone, origin = "self", onClick, .
     if (href.startsWith("#") || normalize(href) === normalize(pathname)) return;
 
     e.preventDefault();
-    start(href, originRect(e.currentTarget, origin), tone ?? toneForHref(href));
+    const el = e.currentTarget;
+    const edgeY = headerEdge(el);
+    const r = originRect(el, origin);
+    // ヘッダーからのときは、押した要素の幅で下線の高さに 2px の線を置く
+    const rect = edgeY != null ? new DOMRect(r.left, edgeY - 2, r.width, 2) : r;
+    start(href, rect, tone ?? toneForHref(href), edgeY);
   };
 
   return <Link {...rest} href={href} onClick={handleClick} />;

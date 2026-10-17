@@ -7,7 +7,7 @@ import styles from "./Header.module.css";
 export default function Header() {
   return (
     <header className={styles.header}>
-      <TransitionLink href="/" origin="self" className={styles.logo}>
+      <TransitionLink href="/" origin="self" className={styles.logo} data-transition-edge>
         <Image
           src="/logo/LogoH_white.svg"
           alt="R-EXPO 2027"
@@ -15,6 +15,7 @@ export default function Header() {
           height={1377}
           unoptimized
           className={styles.logoImage}
+          data-header-logo
         />
       </TransitionLink>
 

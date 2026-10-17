@@ -6,7 +6,7 @@ import type { ReactNode } from "react";
 import type { TransitionTone } from "@/types/tone";
 import styles from "./PageTransration.module.css";
 
-type Start = (href: string, origin: DOMRect, tone: TransitionTone) => void;
+type Start = (href: string, origin: DOMRect, tone: TransitionTone, edgeY?: number) => void;
 
 const TransitionContext = createContext<Start | null>(null);
 export const usePageTransition = () => useContext(TransitionContext);
@@ -21,6 +21,10 @@ const STRIPE_FROM = 0.4; // 縞は矩形の右下、各辺の 40% 地点を結�
 const fullRect = () => new DOMRect(0, 0, window.innerWidth, window.innerHeight);
 const goneRect = () => new DOMRect(0, 0, window.innerWidth, 0);
 const bandRect = (r: DOMRect) => new DOMRect(0, r.top, window.innerWidth, r.height);
+// ヘッダー起点用：y は下線の下端
+const lineRect = (y: number) => new DOMRect(0, y - 2, window.innerWidth, 2);
+const belowRect = (y: number) => new DOMRect(0, y - 2, window.innerWidth, window.innerHeight - y + 2);
+const edgeGoneRect = (y: number) => new DOMRect(0, y - 2, window.innerWidth, 0);
 
 // fixed 要素なので viewport 基準の inset() に変換する
 const toInset = (r: DOMRect) =>
@@ -41,6 +45,7 @@ export default function PageTransitionProvider({ children }: { children: ReactNo
   const busy = useRef(false);
   const waiting = useRef(false);
   const fallback = useRef<number>(undefined);
+  const edge = useRef<number | null>(null);
 
   const place = useCallback((rect: DOMRect, ms = 0, ease = "linear") => {
     const el = overlayRef.current;
@@ -68,17 +73,19 @@ export default function PageTransitionProvider({ children }: { children: ReactNo
       await place(bandRect(rect), TALL_MS, EASE_IN_OUT);
       await place(rect, WIDE_MS, EASE_OUT);
     } else {
-      await place(goneRect(), TALL_MS, EASE_OUT);
+      const y = edge.current;
+      await place(y != null ? edgeGoneRect(y) : goneRect(), TALL_MS, EASE_OUT);
     }
 
     el.style.visibility = "hidden";
     await place(goneRect());
     delete document.documentElement.dataset.transition;
+    edge.current = null;
     busy.current = false;
   }, [place]);
 
   const start = useCallback<Start>(
-    async (href, origin, tone) => {
+    async (href, origin, tone, edgeY) => {
       const el = overlayRef.current;
       if (!el || busy.current) return;
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -86,6 +93,7 @@ export default function PageTransitionProvider({ children }: { children: ReactNo
         return;
       }
       busy.current = true;
+      edge.current = edgeY ?? null;
 
       // 起点の矩形に置く（トランジションなし）
       el.dataset.tone = tone;
@@ -94,8 +102,14 @@ export default function PageTransitionProvider({ children }: { children: ReactNo
       el.getBoundingClientRect(); // reflow で初期位置を確定させる
 
       document.documentElement.dataset.transition = "cover";
-      await place(bandRect(origin), WIDE_MS, EASE_IN_OUT);
-      await place(fullRect(), TALL_MS, EASE_IN_OUT);
+      if (edgeY != null) {
+        // ヘッダーの下線から横に伸び、そこから下だけを覆う
+        await place(lineRect(edgeY), WIDE_MS, EASE_IN_OUT);
+        await place(belowRect(edgeY), TALL_MS, EASE_IN_OUT);
+      } else {
+        await place(bandRect(origin), WIDE_MS, EASE_IN_OUT);
+        await place(fullRect(), TALL_MS, EASE_IN_OUT);
+      }
 
       waiting.current = true;
       fallback.current = window.setTimeout(reveal, FALLBACK_MS);
