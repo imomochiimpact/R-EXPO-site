@@ -91,26 +91,29 @@ export default function MobileMenu() {
 
           <nav aria-label="メニュー">
             <ul className={styles.list}>
-              {ITEMS.map((item, i) => (
-                <li
-                  key={item.href}
-                  className={styles.item}
-                  style={{ animationDelay: `${0.18 + i * 0.05}s` }}
-                >
-                  <TransitionLink
-                    href={item.href}
-                    tone={item.tone}
-                    className={styles.link}
-                    data-tone={item.tone}
-                    aria-current={pathname === item.href ? "page" : undefined}
-                    onClick={() => pathname === item.href && setOpen(false)}
+              {ITEMS.map((item, i) => {
+                const isCurrent = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
+                return (
+                  <li
+                    key={item.href}
+                    className={styles.item}
+                    style={{ animationDelay: `${0.18 + i * 0.05}s` }}
                   >
-                    <span className={styles.edge} data-transition-origin="" aria-hidden="true" />
-                    <span className={styles.num}>{String(i + 1).padStart(2, "0")}</span>
-                    <span className={styles.label}>{item.label}</span>
-                  </TransitionLink>
-                </li>
-              ))}
+                    <TransitionLink
+                      href={item.href}
+                      tone={item.tone}
+                      className={styles.link}
+                      data-tone={item.tone}
+                      aria-current={isCurrent ? "page" : undefined}
+                      onClick={() => pathname === item.href && setOpen(false)}
+                    >
+                      <span className={styles.edge} data-transition-origin="" aria-hidden="true" />
+                      <span className={styles.num}>{String(i + 1).padStart(2, "0")}</span>
+                      <span className={styles.label}>{item.label}</span>
+                    </TransitionLink>
+                  </li>
+                );
+              })}
             </ul>
           </nav>
 

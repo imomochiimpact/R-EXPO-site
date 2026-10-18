@@ -18,21 +18,29 @@ const EASE_IN_OUT = "cubic-bezier(0.65, 0, 0.25, 1)";
 const EASE_OUT = "cubic-bezier(0.2, 0.7, 0.2, 1)";
 const STRIPE_FROM = 0.4; // 縞は矩形の右下、各辺の 40% 地点を結んだ三角
 
-const fullRect = () => new DOMRect(0, 0, window.innerWidth, window.innerHeight);
+// スマホはアドレスバーの出入りで innerHeight が遷移中に変わるため、高さは画面より大きめに取る（はみ出しは見えない）
+const tallH = () => Math.max(window.innerHeight, window.screen.height) + 200;
+
+const fullRect = () => new DOMRect(0, 0, window.innerWidth, tallH());
 const goneRect = () => new DOMRect(0, 0, window.innerWidth, 0);
 const bandRect = (r: DOMRect) => new DOMRect(0, r.top, window.innerWidth, r.height);
 // ヘッダー起点用：y は下線の下端
 const lineRect = (y: number) => new DOMRect(0, y - 2, window.innerWidth, 2);
-const belowRect = (y: number) => new DOMRect(0, y - 2, window.innerWidth, window.innerHeight - y + 2);
+const belowRect = (y: number) => new DOMRect(0, y - 2, window.innerWidth, tallH() - y + 2);
 const edgeGoneRect = (y: number) => new DOMRect(0, y - 2, window.innerWidth, 0);
 
-// fixed 要素なので viewport 基準の inset() に変換する
-const toInset = (r: DOMRect) =>
-  `inset(${r.top}px ${window.innerWidth - r.right}px ${window.innerHeight - r.bottom}px ${r.left}px)`;
+// 左上と幅・高さで指定する xywh() なら画面の高さに依存しない。未対応ブラウザは inset()
+const supportsXywh = () => typeof CSS !== "undefined" && CSS.supports("clip-path", "xywh(0px 0px 1px 1px)");
+const toClip = (r: DOMRect) =>
+  supportsXywh()
+    ? `xywh(${r.left}px ${r.top}px ${r.width}px ${r.height}px)`
+    : `inset(${r.top}px ${window.innerWidth - r.right}px ${window.innerHeight - r.bottom}px ${r.left}px)`;
 
-// 縞の三角も同じ矩形から作り、塗りと一緒に伸縮させる
-const toStripe = (r: DOMRect) =>
-  `polygon(${r.right}px ${r.top + r.height * STRIPE_FROM}px, ${r.right}px ${r.bottom}px, ${r.left + r.width * STRIPE_FROM}px ${r.bottom}px)`;
+// 縞の三角も同じ矩形から作り、塗りと一緒に伸縮させる（見えている範囲で割合を取る）
+const toStripe = (rect: DOMRect) => {
+  const r = new DOMRect(rect.left, rect.top, rect.width, Math.max(0, Math.min(rect.height, window.innerHeight - rect.top)));
+  return `polygon(${r.right}px ${r.top + r.height * STRIPE_FROM}px, ${r.right}px ${r.bottom}px, ${r.left + r.width * STRIPE_FROM}px ${r.bottom}px)`;
+};
 
 const nextFrame = () =>
   new Promise<void>((res) => requestAnimationFrame(() => requestAnimationFrame(() => res())));
@@ -54,7 +62,7 @@ export default function PageTransitionProvider({ children }: { children: ReactNo
     const transition = ms ? `clip-path ${ms}ms ${ease}` : "none";
     el.style.transition = transition;
     stripe.style.transition = transition;
-    el.style.clipPath = toInset(rect);
+    el.style.clipPath = toClip(rect);
     stripe.style.clipPath = toStripe(rect);
     return new Promise<void>((res) => window.setTimeout(res, ms));
   }, []);
@@ -80,6 +88,7 @@ export default function PageTransitionProvider({ children }: { children: ReactNo
     el.style.visibility = "hidden";
     await place(goneRect());
     delete document.documentElement.dataset.transition;
+    delete document.documentElement.dataset.transitionEdge;
     edge.current = null;
     busy.current = false;
   }, [place]);
@@ -102,6 +111,7 @@ export default function PageTransitionProvider({ children }: { children: ReactNo
       el.getBoundingClientRect(); // reflow で初期位置を確定させる
 
       document.documentElement.dataset.transition = "cover";
+      if (edgeY != null) document.documentElement.dataset.transitionEdge = "";
       if (edgeY != null) {
         // ヘッダーの下線から横に伸び、そこから下だけを覆う
         await place(lineRect(edgeY), WIDE_MS, EASE_IN_OUT);

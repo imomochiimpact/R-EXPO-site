@@ -146,11 +146,13 @@
   font-weight: 700;
 }
 
-.link[aria-current="page"] .label {
-  text-decoration: underline;
-  text-decoration-color: var(--accent);
-  text-decoration-thickness: 2px;
-  text-underline-offset: 6px;
+/* 現在地：アクセント単色を薄く敷き、左の線を太く（文字は白のまま読める濃さ） */
+.link[aria-current="page"] {
+  background-color: color-mix(in srgb, var(--accent) 18%, transparent);
+}
+
+.link[aria-current="page"] .edge {
+  width: 6px;
 }
 
 .externals {

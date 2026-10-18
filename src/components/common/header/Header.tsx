@@ -18,7 +18,6 @@ export default function Header() {
           data-header-logo
         />
       </TransitionLink>
-
       <HeaderNav />
       <MobileMenu />
     </header>

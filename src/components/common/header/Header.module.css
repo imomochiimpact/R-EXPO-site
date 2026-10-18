@@ -24,7 +24,8 @@
   visibility: hidden;
 }
 
-:global(html[data-transition]) .logo {
+/* 全面を覆う遷移では幕の裏で一瞬で切り替える。ヘッダー起点（data-transition-edge）はロゴが覆われないのでフェードのまま */
+:global(html[data-transition]:not([data-transition-edge])) .logo {
   transition: none;
 }
 
