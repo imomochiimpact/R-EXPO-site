@@ -55,8 +55,9 @@ export default function TransitionLink({ href, tone, origin = "self", onClick, .
 
     e.preventDefault();
     const el = e.currentTarget;
-    const edgeY = headerEdge(el);
     const r = originRect(el, origin);
+    // ナビはホバーで浮いている（transform）ので、見えている下線の位置をそのまま使う
+    const edgeY = origin === "underline" && headerEdge(el) != null ? r.bottom : headerEdge(el);
     // ヘッダーからのときは、押した要素の幅で下線の高さに 2px の線を置く
     const rect = edgeY != null ? new DOMRect(r.left, edgeY - 2, r.width, 2) : r;
     start(href, rect, tone ?? toneForHref(href), edgeY);
