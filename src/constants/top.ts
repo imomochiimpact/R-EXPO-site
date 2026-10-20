@@ -14,6 +14,6 @@ export const TOP_LINKS: {
 ];
 
 export const HERO_IMAGE = {
-  src: "https://r-expo.site/2027/brand/tmpHero.webp",
+  src: "https://img.r-expo.site/2027/brand/tmpHero.webp",
   alt: "楽しげに話す男女",
 };

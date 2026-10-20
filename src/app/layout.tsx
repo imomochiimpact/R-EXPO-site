@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     siteName: "R-EXPO 2027",
     description: SITE_DESCRIPTION,
     images: [{
-      url: "https://r-expo.site/2027/brand/ogp.png",
+      url: "https://img.r-expo.site/2027/brand/ogp.png",
       width: 1200,
       height: 630,
       alt: "R-EXPO 2027",
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    images: "https://r-expo.site/2027/brand/ogp.png",
+    images: "https://img.r-expo.site/2027/brand/ogp.png",
   },
 };
 

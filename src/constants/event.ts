@@ -8,7 +8,7 @@ export const EVENT: EventInfo = {
   venue: "札幌コンベンションセンター",
   venueUrl: "https://www.sora-scc.jp/",
   venueImage: {
-    src: "https://r-expo.site/common/location.webp",
+    src: "https://img.r-expo.site/common/location.webp",
     alt: "札幌コンベンションセンターの外観",
   },
   address: "〒003-0006 札幌市 白石区東札幌6条1丁目1-1",
