@@ -20,6 +20,7 @@ export const HISTORY_2026: HistoryEntry = {
     { label: "立命館大学チアリーダー部 特別パフォーマンス", src: "https://img.r-expo.site/2026/photos/cheer.webp" },
     { label: "R-Union 立命館大学生による大学生活のすゝめ", src: "https://img.r-expo.site/2026/photos/RU.webp" },
   ],
+  photosNote: "and more!",
   stats: [
     { label: "来場者数", value: "約3500人" },
     { label: "出展・発表団体", value: "100以上" },

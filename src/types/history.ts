@@ -14,5 +14,6 @@ export type HistoryEntry = {
   title: string;
   summary: string[];
   photos: HistoryPhoto[];
+  photosNote?: string;
   stats: HistoryStat[];
 };

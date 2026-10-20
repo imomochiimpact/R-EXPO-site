@@ -59,6 +59,11 @@ export default function HistoryDetail({ entry }: Props) {
           );
         })}
       </ul>
+      {entry.photosNote && (
+        <p className={styles.photosNote} data-reveal="">
+          {entry.photosNote}
+        </p>
+      )}
     </section>
   );
 }
