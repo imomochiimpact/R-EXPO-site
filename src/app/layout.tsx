@@ -3,10 +3,10 @@ import { Inter, Oswald, Zen_Kaku_Gothic_New } from "next/font/google";
 import Header from "@/components/common/header/Header";
 import Footer from "@/components/common/footer/Footer";
 import DragGuard from "@/components/common/dragGuard/DragGuard";
-import { LOADED_CHECK_SCRIPT } from "@/constants/loader";
 import { SITE_DESCRIPTION, SITE_URL } from "@/constants/site";
 import "./globals.css";
 import Loeder from "@/components/common/loader/Loader";
+import LoadedCheckScript from "@/components/common/loader/LoadedCheckScript";
 import PageTransitionProvider from "@/components/common/pageTransration/PageTransrationProvider";
 
 // 日本語
@@ -71,7 +71,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
-        <script dangerouslySetInnerHTML={{ __html: LOADED_CHECK_SCRIPT }} />
+        <LoadedCheckScript />
       </head>
       <body>
         <PageTransitionProvider>
