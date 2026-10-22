@@ -16,6 +16,7 @@ export default function Hero() {
         sizes="100vw"
         unoptimized
         preload
+        fetchPriority="high"
         className={styles.bgImage}
       />
       <div className={styles.observer}>
