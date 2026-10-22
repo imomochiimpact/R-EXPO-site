@@ -41,6 +41,14 @@ const headerEdge = (el: HTMLElement): number | undefined => {
   return r.bottom + r.height * EDGE_RATIO;
 };
 
+// 起点がヘッダーの裏に隠れている部分は切り落とす（遷移の幕はヘッダーより手前に出るため）。メニュー内はヘッダーが裏にあるので対象外
+const belowHeader = (el: HTMLElement, r: DOMRect): DOMRect => {
+  if (el.closest('[role="dialog"]')) return r;
+  const limit = document.querySelector("header")?.getBoundingClientRect().bottom ?? 0;
+  const top = Math.max(r.top, limit);
+  return new DOMRect(r.left, top, r.width, Math.max(0, r.bottom - top));
+};
+
 const normalize = (p: string) => p.replace(/\/$/, "") || "/";
 
 export default function TransitionLink({ href, tone, origin = "self", onClick, ...rest }: Props) {
@@ -59,7 +67,7 @@ export default function TransitionLink({ href, tone, origin = "self", onClick, .
     // ナビはホバーで浮いている（transform）ので、見えている下線の位置をそのまま使う
     const edgeY = origin === "underline" && headerEdge(el) != null ? r.bottom : headerEdge(el);
     // ヘッダーからのときは、押した要素の幅で下線の高さに 2px の線を置く
-    const rect = edgeY != null ? new DOMRect(r.left, edgeY - 2, r.width, 2) : r;
+    const rect = edgeY != null ? new DOMRect(r.left, edgeY - 2, r.width, 2) : belowHeader(el, r);
     start(href, rect, tone ?? toneForHref(href), edgeY);
   };
 
