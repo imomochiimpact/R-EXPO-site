@@ -18,8 +18,16 @@ const EASE_IN_OUT = "cubic-bezier(0.65, 0, 0.25, 1)";
 const EASE_OUT = "cubic-bezier(0.2, 0.7, 0.2, 1)";
 const STRIPE_FROM = 0.4; // 縞は矩形の右下、各辺の 40% 地点を結んだ三角
 
-// スマホはアドレスバーの出入りで innerHeight が遷移中に変わるため、高さは画面より大きめに取る（はみ出しは見えない）
-const tallH = () => Math.max(window.innerHeight, window.screen.height) + 200;
+// スマホはアドレスバーの出入りで innerHeight が遷移中に変わるため、バーが引っ込んだときの高さ（100lvh）まで覆う。
+// それ以上大きくすると、見えない部分を動いている間アニメーションが止まって見える
+const tallH = () => {
+  const probe = document.createElement("div");
+  probe.style.cssText = "position:fixed;top:0;height:100lvh;visibility:hidden;pointer-events:none";
+  document.body.append(probe);
+  const h = probe.offsetHeight;
+  probe.remove();
+  return Math.max(h, window.innerHeight);
+};
 
 const fullRect = () => new DOMRect(0, 0, window.innerWidth, tallH());
 const goneRect = () => new DOMRect(0, 0, window.innerWidth, 0);
