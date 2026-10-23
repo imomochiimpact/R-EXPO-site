@@ -26,7 +26,7 @@ export default function Footer() {
             Instagram
           </FillButton>
         </div>
-        <small className={styles.credit}>© 2026 Tsubasa Takayama / 任意団体C-Lab</small>
+        <small className={styles.credit}>© 2026 Tsubasa Takayama / C-Lab</small>
       </div>
     </footer>
   );
