@@ -26,7 +26,7 @@ export const STAGES: Stage[] = [
     num: "04",
     name: "CULTURE STAGE",
     tone: "purple",
-    shape: "cross",
+    shape: "semicircle",
     description: "ステージの説明文がここに入ります。",
   },
 ];
