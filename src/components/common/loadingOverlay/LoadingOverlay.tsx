@@ -11,7 +11,7 @@ type Props = {
   errorLabel?: string;
 };
 
-const MARKS = ["circle", "square", "triangle", "cross"] as const;
+const MARKS = ["circle", "square", "triangle", "semicircle"] as const;
 
 const HOP_EASE = "cubic-bezier(.33,0,.4,1)";
 const DURATION = 900;

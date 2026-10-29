@@ -48,7 +48,7 @@
 .mark[data-shape="circle"] { color: var(--accentBlue); }
 .mark[data-shape="square"] { color: var(--accentGreen); }
 .mark[data-shape="triangle"] { color: var(--accentPink); }
-.mark[data-shape="cross"] { color: var(--accentPurple); }
+.mark[data-shape="semicircle"] { color: var(--accentPurple); }
 
 .shape {
   position: relative;
