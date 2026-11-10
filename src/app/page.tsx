@@ -12,8 +12,8 @@ export default function Home() {
       <Hero />
       <EventSummary />
       <ConceptIntro />
-      <PageLinks />
       <SupportCta />
+      <PageLinks />
       {/* <ArchivePreview /> */}
       <NewsList />
     </main>
