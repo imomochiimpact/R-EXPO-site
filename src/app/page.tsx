@@ -10,8 +10,8 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      {/* <ConceptIntro /> */}
       <EventSummary />
+      <ConceptIntro />
       <SupportCta />
       <PageLinks />
       {/* <ArchivePreview /> */}

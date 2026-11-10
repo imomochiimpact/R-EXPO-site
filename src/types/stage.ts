@@ -9,5 +9,7 @@ export type Stage = {
   name: string;
   tone: AccentTone;
   shape: StageShapeType;
+  catch: string;
   description: string;
+  programs: string[];
 };

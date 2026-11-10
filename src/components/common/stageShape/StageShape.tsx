@@ -5,13 +5,14 @@ type Props = {
   shape: StageShapeType;
   outline?: boolean;
   className?: string;
+  "data-tone"?: string;
 };
 
-export default function StageShape({ shape, outline = false, className }: Props) {
+export default function StageShape({ shape, outline = false, className, ...rest }: Props) {
   const d = STAGE_SHAPES[shape][outline ? "outline" : "solid"];
 
   return (
-    <svg viewBox="0 0 1000 1000" className={className} aria-hidden="true" focusable="false">
+    <svg viewBox="0 0 1000 1000" className={className} {...rest} aria-hidden="true" focusable="false">
       <path
         d={d}
         fill="currentColor"
