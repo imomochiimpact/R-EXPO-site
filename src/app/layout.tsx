@@ -28,7 +28,6 @@ const inter = Inter({
 
 // 数字
 const oswald = Oswald({
-  weight: ["500", "700"],
   subsets: ["latin"],
   variable: "--font-oswald",
   display: "swap",
