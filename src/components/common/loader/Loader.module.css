@@ -34,7 +34,7 @@
 
 /* ① パーツ：最初は離れた場所で透明。.in が付くと本来の位置に戻る */
 .part {
-  fill: #323232;
+  fill: var(--primary);
   transform-box: fill-box;
   transform-origin: center;
   opacity: 0;

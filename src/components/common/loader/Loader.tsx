@@ -124,7 +124,7 @@ export default function Loader() {
           ))}
         </svg>
       </div>
-      <Image src="/logo/Letter.svg" alt="" width={180} height={56} className={styles.word} priority />
+      <Image src="/logo/Letter_navy.svg" alt="" width={180} height={56} className={styles.word} priority />
     </div>
   );
 }

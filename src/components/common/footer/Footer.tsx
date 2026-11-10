@@ -9,7 +9,7 @@ export default function Footer() {
       <div className={styles.inner}>
         <div>
           <Image
-            src="/logo/LogoH.svg"
+            src="/logo/LogoH_navy.svg"
             alt="R-EXPO 2027"
             width={5587}
             height={1377}

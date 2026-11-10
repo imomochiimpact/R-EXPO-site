@@ -10,10 +10,10 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      {/* <ConceptIntro /> */}
       <EventSummary />
-      <SupportCta />
+      <ConceptIntro />
       <PageLinks />
+      <SupportCta />
       {/* <ArchivePreview /> */}
       <NewsList />
     </main>

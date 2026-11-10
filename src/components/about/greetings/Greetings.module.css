@@ -1,0 +1,83 @@
+.section {
+  background-color: var(--surfaceVariant);
+}
+
+.inner {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: clamp(36px, 6vw, 72px) var(--gutter);
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.card {
+  padding: clamp(24px, 3vw, 36px);
+  border-top: 4px solid var(--accentPink);
+  background-color: var(--white);
+}
+
+.heading {
+  display: grid;
+  gap: 2px;
+  margin: 0;
+}
+
+.role {
+  color: var(--textSub);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.name {
+  color: var(--primary);
+  font-size: clamp(20px, 2.2vw, 24px);
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.body {
+  margin: 16px 0 0;
+  color: var(--textPrimary);
+  font-size: 15px;
+  line-height: 2.05;
+  text-wrap: pretty;
+  white-space: pre-line;
+}
+
+.head {
+  display: flex;
+  gap: clamp(14px, 2.4vw, 20px);
+  align-items: center;
+}
+
+.photoFrame {
+  position: relative;
+  flex: 0 0 auto;
+  width: clamp(88px, 12vw, 120px);
+  aspect-ratio: 1;
+  margin: 0 8px 8px 0;
+}
+
+.photoFrame::after {
+  content: "";
+  position: absolute;
+  inset: 8px -8px -8px 8px;
+  border: 1px solid var(--accentPink);
+  pointer-events: none;
+}
+
+.photo {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background-color: var(--surfaceVariant);
+}
